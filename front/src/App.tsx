@@ -38,7 +38,7 @@ const App: React.FC = () => {
           },
         ];
 
-		    //Getting the table rows from json data:
+        //Getting the table rows from json data:
         const rows = data.Reports[0].Rows.reduce((acc: any[], section: any) => {
           if (section.Rows) {
             const sectionRows = section.Rows
