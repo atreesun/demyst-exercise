@@ -7,9 +7,6 @@ use Illuminate\Foundation\Testing\TestCase;
 
 class XeroControllerTest extends TestCase
 {
-    /**
-     * A basic unit test example.
-     */
     public function testBalanceSheetApiEndpoint(): void
     {
         $this->json('get', '/BalanceSheet')
