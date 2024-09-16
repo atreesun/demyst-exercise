@@ -17,7 +17,7 @@ const App: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('/BalanceSheet'); //TODO (?) Change to Axios for better backward compatibility
+        const res = await fetch(process.env.REACT_APP_API_URI + '/BalanceSheet'); //TODO (?) Change to Axios for better backward compatibility
         const data = await res.json();
 
         const cols: Column[] = [
