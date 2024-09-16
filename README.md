@@ -2,8 +2,8 @@
 
 - Backend: Laravel with [Xero PHP SDK](https://github.com/XeroAPI/xero-php-oauth2)
   - API endpoint (/BalanceSheet) to get data from Xero API: [XeroController](back/app/Http/Controllers/XeroController.php)
-  - Error handling is done via exeptions. Currently two situations are covered, 1 - connection error (GuzzleHttp/Exception/ConnectException), 2 - Xero API error (XeroPHP/ApiException): [Exceptions](back/bootstrap/app.php)
-  - Unit test to check if the API endpoint returns code 200 with json data: [XeroControllerTest](back/tests/Unit/XeroControllerTest.php)
+  - Error handling is done via exceptions. Currently, two situations are covered: 1 - connection error (GuzzleHttp/Exception/ConnectException), 2 - Xero API error (XeroPHP/ApiException): [Exceptions](back/bootstrap/app.php)
+  - Unit test to check if the API endpoint returns code 200 and JSON data: [XeroControllerTest](back/tests/Unit/XeroControllerTest.php)
   - Containerized and deployed to [AWS ECS (Fargate)](https://api.demyst.khanin.me/BalanceSheet)
 
 - Frontend: [Typescript + React](front/src/App.tsx)
