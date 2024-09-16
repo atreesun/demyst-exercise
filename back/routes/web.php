@@ -3,4 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\XeroController;
 
-Route::get('/BalanceSheet', [XeroController::class, 'BalanceSheet']);
+Route::middleware(['Cors'])->group(function () {
+    Route::get('/BalanceSheet', [XeroController::class, 'BalanceSheet']);
+});
