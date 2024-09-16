@@ -7,7 +7,7 @@
   - [Dockerfile](back/Dockerfile)
   - TODO: Deploy to AWS ECS / Fargate
 
-- Frontend: Typescript + React
+- Frontend: [Typescript + React](front/src/App.tsx)
   - The table data is rendered with [react-data-table-component](https://www.npmjs.com/package/react-data-table-component)
   - Jest unit test to check if the App is rendered: [App renders](front/src/__test__/App.test.tsx)
   - TODO: Deploy to AWS S3 / Static website
