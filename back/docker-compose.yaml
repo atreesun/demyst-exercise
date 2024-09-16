@@ -1,0 +1,12 @@
+services:
+  web:
+    image: onix:demyst-back
+    build:
+      target: web
+      context: .
+    env_file:
+      - .env
+    ports:
+      - "443:80"
+    volumes:
+      - .:/var/www/html
