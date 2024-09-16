@@ -10,15 +10,15 @@ class XeroController extends Controller
 {
     public function BalanceSheet()
     {
-        //TODO Implement caching, i.e. return Cache::remember('XeroBalanceSheet', 3600, function () {...});
-        // Assume that the authentication with Xero is already done.
-        $apiInstance = new XeroPHP\Api\AccountingApi(
-            new \GuzzleHttp\Client(),
-            XeroPHP\Configuration::getDefaultConfiguration()->setHostAccounting(env("XERO_API_URL"))
-        );
+        return Cache::remember('XeroBalanceSheet', env("XERO_API_CACHE_TTL"), function () {
+            $apiInstance = new XeroPHP\Api\AccountingApi(
+                new \GuzzleHttp\Client(),
+                XeroPHP\Configuration::getDefaultConfiguration()->setHostAccounting(env("XERO_API_URL"))
+            );
 
-        $result = $apiInstance->getReportBalanceSheet(env("XERO_TENANT_ID"));
+            $result = $apiInstance->getReportBalanceSheet(env("XERO_TENANT_ID"));
 
-        return response()->json(XeroPHP\AccountingObjectSerializer::sanitizeForSerialization($result));
+            return response()->json(XeroPHP\AccountingObjectSerializer::sanitizeForSerialization($result));
+        });
     }
 }
